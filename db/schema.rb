@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_21_094356) do
-  # Could not dump table "articles" because of following StandardError
-  #   Unknown type 'userId' for column 'user_id'
+ActiveRecord::Schema[7.0].define(version: 2023_08_21_114921) do
+# Could not dump table "articles" because of following StandardError
+#   Unknown type 'userId' for column 'user_id'
 
   create_table "employees", force: :cascade do |t|
     t.string "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_094356) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.string "email"
-    t.timestamps
+    t.string "password_digest"
   end
+
 end
