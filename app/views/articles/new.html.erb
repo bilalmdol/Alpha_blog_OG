@@ -1,13 +1,6 @@
 <h1> Create a new Article </h1>
-<% if @newArticle.errors.any? %>
-    <h2>following errors prevented saving this article</h2>
-<ul>
-    <% @newArticle.errors.full_messages.each do |msg| %>
-       <li> <%= msg %></li>
-    <% end %>
-</ul>
 
-<% end %>
+<%= render "shared/errors", obj: @newArticle %>
 
 <%= form_with scope: :articles, url: articles_path, local: true, data: { turbo: false } do |f| %>
     <p>
