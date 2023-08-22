@@ -5,21 +5,21 @@
 <%= form_with scope: :users, url: users_path, local: true, data: { turbo: false } do |f| %>
     <p>
         <%= f.label :Username %></br>
-        <%= f.text_field :Username %></br>
+        <%= f.text_field :username %></br>
     </p>
 
     <p>
         <%= f.label :Email %></br>
-        <%= f.text_field :Email %></br>
+        <%= f.text_field :email %></br>
     </p>
 
     <p>
         <%= f.label :Password %></br>
-        <%= f.text_field :Password %></br>
+        <%= f.text_field :password %></br>
     </p>
 
     <p>
-        <%= f.submit %>
+        <%= f.submit "Sign Up" %>
     </p>
 <% end %>
 
