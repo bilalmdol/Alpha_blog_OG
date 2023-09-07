@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show]
+  before_action :require_user, except: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     @users = User.paginate(page: params[:page], per_page: 3)
@@ -36,10 +38,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy
+    session[:user_id] = nil
+    redirect_to root_path
+  end
+
   private
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def require_same_user
+    if current_user != @user
+      flash[:notice] = "U can only edit and delete your articles!!"
+      redirect_to @user
+    end
   end
 
   def def(user_params)

@@ -9,7 +9,7 @@
         <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
 </p>
 <div>
-        <% if isLoggedIn? && @article.user == current_user %>
+        <% if isLoggedIn? && (@article.user == current_user || current_user.admin?) %>
                 <%= link_to "Edit", edit_article_path(@article) %>
                 <%= button_to "Delete", article_path(@article), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %>
         <% end %>

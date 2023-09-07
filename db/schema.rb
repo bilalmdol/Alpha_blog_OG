@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_21_114921) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_07_192936) do
 # Could not dump table "articles" because of following StandardError
 #   Unknown type 'userId' for column 'user_id'
 
@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_114921) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.boolean "admin", default: false
   end
 
 end
