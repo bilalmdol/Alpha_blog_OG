@@ -1,0 +1,24 @@
+<h1>Alpha Bloggers</h1>
+
+<br/>
+<div >
+   <% @users.each do |user| %>
+        <div>
+        <%= link_to user.username, user %>
+        <% # # <%= link_to gravatar_for(user, size: 150), user %>   
+            <%= pluralize(user.articles.count, "article") %>
+            <%= link_to "Show Profile", user %>
+            <% if isLoggedIn? && user == current_user %>        
+                <%= link_to "Edit", edit_user_path(user) %>   
+            <% end %>
+            <small> Joined <%= time_ago_in_words(user.created_at) %> ago</small>
+        </div>
+    <% end %>
+
+</div>
+
+<%= will_paginate @users %>
+
+<br/>
+
+

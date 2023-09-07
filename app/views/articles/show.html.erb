@@ -6,9 +6,12 @@
                 Author:
         </strong>
         <%= @article.user.username if @article.user %>
+        <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
 </p>
 <div>
-        <%= link_to "Edit", edit_article_path(@article) %>
-        <%= button_to "Delete", article_path(@article), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %>
+        <% if isLoggedIn? && @article.user == current_user %>
+                <%= link_to "Edit", edit_article_path(@article) %>
+                <%= button_to "Delete", article_path(@article), method: :delete, form: { data: { turbo_confirm: "Are you sure?" } } %>
+        <% end %>
         <%= link_to "Return to All Articles", articles_path %>
 </div>
