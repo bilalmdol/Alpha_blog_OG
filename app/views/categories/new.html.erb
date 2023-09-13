@@ -1,0 +1,18 @@
+<div class="col-4">
+    <h1>Create a new Category </h1>
+
+    <%= render "shared/errors", obj: @category %>
+
+    <%= form_with scope: :category, url: categories_url, local: true, data: { turbo: false } do |f| %>
+        
+            <p>
+                <%= f.label :name, "Category Name" %></br>
+                <%= f.text_field :name, class: "form-control shadow rounded" %></br>
+            </p>
+
+            <p>
+                <%= f.submit "Create", class: "btn btn-outline-success" %>
+            </p>
+    <% end %>
+</div>
+
